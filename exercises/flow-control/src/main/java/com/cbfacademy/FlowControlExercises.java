@@ -1,6 +1,7 @@
 package com.cbfacademy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -34,7 +35,49 @@ public class FlowControlExercises {
         // TODO - Implement this method such that
         //  - it returns the month corresponding to the input ${number}
         //  - if the ${number} is invalid, the method should return "Invalid month number"
-        throw new RuntimeException("Not implemented");
+        String month;
+        switch (number){
+            case 1:
+            month = "January";
+            break;
+            case 2:
+            month = "Febuary";
+            break;
+            case 3:
+            month = "March";
+            break;
+            case 4:
+            month = "April";
+            break;
+            case 5:
+            month = "May";
+            break;
+            case 6:
+            month = "June";
+            break;
+            case 7:
+            month = "July";
+            break;
+            case 8:
+            month = "August";
+            break;
+            case 9:
+            month = "September";
+            break;
+            case 10:
+            month = "October";
+            break;
+            case 11:
+            month = "November";
+            break;
+            case 12:
+            month = "December";
+            break;
+            default: 
+            month = "Invalid month number";
+        }
+        return month;
+        //throw new RuntimeException("Not implemented");
     }
 
     public Map<String, Integer> sumOfOddsAndSumOfEvens() {
@@ -48,10 +91,15 @@ public class FlowControlExercises {
     }
 
     public List<Integer> reverse(ArrayList<Integer> numbers) {
+        ArrayList<Integer> reverseList = new ArrayList<>(numbers); 
+        Collections.reverse(reverseList);
+        return reverseList;
+        
+
         // TODO - Implement this method such that
         //  - it takes an array list of integers
         //  - it returns the list in reverse order
-        throw new RuntimeException("Not implemented");
+        //throw new RuntimeException("Not implemented");
     }
 
     public String getName() {
