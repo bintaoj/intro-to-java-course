@@ -8,13 +8,26 @@ public class FlowControlExercises {
 
     public List<String> fizzBuzz(List<Integer> numbers) {
         // TODO - Implement this method such that
+        List<String>f_BList = new ArrayList<>();
         //  it creates a list where for each element of the input list ${numbers}
-        //  - if the ${element} is divisible by 3, it adds “Fizz” to the list
+        for (Integer number : numbers) {
+             //  - if the ${element} is divisible by 3, it adds “Fizz” to the list
+            if (number % 3 == 0 && number % 5 == 0) {
+                f_BList.add("FizzBuzz");
         //  - if the ${element} is divisible by 5, it adds “Buzz” to the list
-        //  - if the ${element} is divisible by both 3 and 5, it adds “FizzBuzz” to the list
-        //  - it adds the element to the list in any other case
-        //  - it returns the constructed list
-        throw new RuntimeException("Not implemented");
+            }else if (number % 5 == 0){
+                f_BList.add("Buzz");
+         //  - if the ${element} is divisible by both 3 and 5, it adds “FizzBuzz” to the list        
+            }else if (number % 3 == 0){
+                f_BList.add("Fizz");
+        //  - it adds the element to the list in any other case        
+            }else{
+                f_BList.add(String.valueOf(number));
+            }
+        }
+        //  - it returns the constructed List
+        return f_BList;
+        //throw new RuntimeException("Not implemented");
     }
 
     public String whichMonth(Integer number) {
