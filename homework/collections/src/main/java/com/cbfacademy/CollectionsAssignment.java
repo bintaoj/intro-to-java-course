@@ -14,6 +14,7 @@ public class CollectionsAssignment {
      * @param list   - the list of integers
      * @param minValue the minimum value to retain
      */
+  
     public static void removeSmallInts(List<Integer> list, int minValue) {
         // Your solution must traverse the list from last to first element
         // removing any values less than minValue.

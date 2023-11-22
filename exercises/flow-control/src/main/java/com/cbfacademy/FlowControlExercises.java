@@ -2,6 +2,7 @@ package com.cbfacademy;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -37,69 +38,56 @@ public class FlowControlExercises {
         //  - if the ${number} is invalid, the method should return "Invalid month number"
         String month;
         switch (number){
-            case 1:
-            month = "January";
-            break;
-            case 2:
-            month = "Febuary";
-            break;
-            case 3:
-            month = "March";
-            break;
-            case 4:
-            month = "April";
-            break;
-            case 5:
-            month = "May";
-            break;
-            case 6:
-            month = "June";
-            break;
-            case 7:
-            month = "July";
-            break;
-            case 8:
-            month = "August";
-            break;
-            case 9:
-            month = "September";
-            break;
-            case 10:
-            month = "October";
-            break;
-            case 11:
-            month = "November";
-            break;
-            case 12:
-            month = "December";
-            break;
-            default: 
-            month = "Invalid month number";
+            case 1:month = "January"; break;
+            case 2:month = "Febuary"; break;
+            case 3:month = "March"; break;
+            case 4:month = "April"; break;
+            case 5:month = "May"; break;
+            case 6:month = "June"; break;
+            case 7:month = "July"; break;
+            case 8:month = "August"; break;
+            case 9:month = "September"; break;
+            case 10:month = "October"; break;
+            case 11:month = "November"; break;
+            case 12:month = "December"; break;
+            default:month = "Invalid month number";
+            
         }
         return month;
         //throw new RuntimeException("Not implemented");
     }
 
     public Map<String, Integer> sumOfOddsAndSumOfEvens() {
+        
         // TODO - Implement this method such that
+        int sumOfEvens = 0;
+        int sumOfOdds = 0;
         //  - creates and initialises a list of 100 numbers - from 1 to 100
-        //  - determines the sum of all the even numbers in the list
-        //  - determines the sum of all the odd numbers in the list
+        for (int num = 1; num <=100; num++){
+        //  - determines the sum of all the even numbers in the list    
+            if (num % 2 == 0){
+                sumOfEvens += num;
+         //  - determines the sum of all the odd numbers in the list        
+            }else 
+                sumOfOdds += num;
+        }
+       Map<String, Integer> sumOfOddsAndSumOfEvens = new HashMap<>(); 
+       sumOfOddsAndSumOfEvens.put("SumOfEvens", sumOfEvens);
+        sumOfOddsAndSumOfEvens.put("SumOfOdds", sumOfOdds);
         //  - returns a map with two entries:
+       return sumOfOddsAndSumOfEvens;
         //      {"SumOfEvens", calculatedSumOfEvens}, {"SumOfOdds", calculatedSumOfOdds}
-        throw new RuntimeException("Not implemented");
+        //throw new RuntimeException("Not implemented");
     }
 
     public List<Integer> reverse(ArrayList<Integer> numbers) {
-        ArrayList<Integer> reverseList = new ArrayList<>(numbers); 
-        Collections.reverse(reverseList);
-        return reverseList;
-        
-
         // TODO - Implement this method such that
         //  - it takes an array list of integers
-        //  - it returns the list in reverse order
-        //throw new RuntimeException("Not implemented");
+        ArrayList<Integer> reverseList = new ArrayList<>(numbers); 
+        Collections.reverse(reverseList);
+         //  - it returns the list in reverse order
+        return reverseList;
+         //throw new RuntimeException("Not implemented");
     }
 
     public String getName() {
