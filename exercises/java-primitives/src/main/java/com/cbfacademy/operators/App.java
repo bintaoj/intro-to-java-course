@@ -9,7 +9,9 @@ public class App {
 
         double resultSubtract = subtract(8.0, 4.5);
         System.out.println("Subtraction result: " + resultSubtract);
-
+ double result = add(resultAdd, resultSubtract);
+ System.out.println(result);
+ 
     }
 
     public static double add(double operand1, double operand2) {

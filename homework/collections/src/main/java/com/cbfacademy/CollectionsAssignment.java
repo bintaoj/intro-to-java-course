@@ -2,14 +2,17 @@ package com.cbfacademy;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CollectionsAssignment {
 
     /**
      * This method removes all values from the provided list that are smaller
-     * than the indicated integer. The remaining elements retain their original
-     * ordering.
+     *than the indicated integer. The remaining elements retain their original
+     *ordering.
      *
      * @param list   - the list of integers
      * @param minValue the minimum value to retain
@@ -18,6 +21,16 @@ public class CollectionsAssignment {
     public static void removeSmallInts(List<Integer> list, int minValue) {
         // Your solution must traverse the list from last to first element
         // removing any values less than minValue.
+        
+        for (int i =0; i < list.size(); i++){
+            int current = list.get(i);
+            if (current < minValue){
+                list.remove(i);
+                i--;
+            }
+        }
+        
+        
     }
 
     /**
@@ -29,7 +42,9 @@ public class CollectionsAssignment {
      */
     public static boolean containsDuplicates(Collection<Integer> integers) {
         // Your solution must not use any loops.
-        return false;
+        Set<Integer> noDuplicates = new HashSet<>(integers);
+
+        return noDuplicates.size() != integers.size();
     }
 
     /**
@@ -49,7 +64,10 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inEither(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
-        return new ArrayList<Integer>();
+        HashSet<Integer> newInts = new HashSet<>();
+            newInts.addAll(ints1);
+            newInts.addAll(ints2);
+        return new ArrayList<Integer>(newInts);
     }
 
     /**
@@ -67,7 +85,12 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
-        return new ArrayList<>();
+        HashSet<Integer> newInts2 = new HashSet<>();
+            newInts2.addAll(ints1);
+            newInts2.addAll(ints2);
+            List<Integer> sortedList = new ArrayList<>(newInts2);
+            Collections.sort(sortedList);
+        return new ArrayList<>(sortedList);
     }
 
     /**
