@@ -2,6 +2,7 @@ package com.cbfacademy.cars;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.cbfacademy.cars.Car;
 
 public class Showroom {
 

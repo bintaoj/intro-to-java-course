@@ -3,8 +3,10 @@ package com.cbfacademy;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class CollectionsAssignment {
@@ -85,11 +87,18 @@ public class CollectionsAssignment {
      */
     public static ArrayList<Integer> inBoth(Collection<Integer> ints1, Collection<Integer> ints2) {
         // This must be done with no loops.
-        HashSet<Integer> newInts2 = new HashSet<>();
-            newInts2.addAll(ints1);
-            newInts2.addAll(ints2);
-            List<Integer> sortedList = new ArrayList<>(newInts2);
-            Collections.sort(sortedList);
+        // Use HashSet to efficiently find common elements
+        HashSet<Integer> set1 = new HashSet<>(ints1);
+        HashSet<Integer> set2 = new HashSet<>(ints2);
+
+        // Retain only common elements in set1
+        set1.retainAll(set2);
+
+        // Convert the set to a list and sort it
+        List<Integer> sortedList = new ArrayList<>(set1);
+        Collections.sort(sortedList);
+
+        // Return the sorted list
         return new ArrayList<>(sortedList);
     }
 
@@ -109,7 +118,25 @@ public class CollectionsAssignment {
         // your counts to find the largest. You'll need a collection that allows
         // you to store a mapping from Strings to counts.
         // No nested loops or non-enhanced for-loops are allowed.
-        return "";
+        Map<String, Integer> counts = new HashMap<>();
+
+        String mostFrequent =null;
+        int maxCount = 0;
+
+        for (String str : list) {
+            // Use getOrDefault to avoid null checks
+            int count = counts.getOrDefault(str, 0) + 1;
+            counts.put(str, count);
+            
+            if (count > maxCount) {
+                mostFrequent = str;
+                maxCount = count;
+            }
+        }
+
+        return mostFrequent;
+
+        //return "";
     }
 
     public static String getName() {
